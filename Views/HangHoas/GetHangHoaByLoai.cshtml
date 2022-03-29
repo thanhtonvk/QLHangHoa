@@ -1,0 +1,67 @@
+﻿@model IEnumerable<QLHangHoa.Models.HangHoa>
+
+@{
+    ViewBag.Title = "GetHangHoaByLoai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Get hàng hóa theo loại</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBox("loaiHangHoa")
+    <input type="submit" value="Tìm kiếm" class="btn btn-primary" />
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenHang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gianhap)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Giaban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Theloai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soluonghientai)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gianhap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Theloai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluonghientai)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaHang }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaHang }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaHang })
+            </td>
+        </tr>
+    }
+
+</table>
